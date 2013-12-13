@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+#$ -N HPccHMM
+#$ -cwd
+
+module load MATLAB/R2013a
+matlab -nodesktop -nodisplay -nosplash -nojvm -r MainHPcc
+
+exit 0
