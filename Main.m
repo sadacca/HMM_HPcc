@@ -24,6 +24,10 @@ n_workers = par.n_workers;
 observations = par.observations;
 n_symbols = par.n_symbols;
 n_observations = par.n_observations;
+if par.tastant<2.5
+par.n_trials=3;
+else
+end
 n_trials = par.n_trials;
 
 %% HMM train and estimate
@@ -33,7 +37,7 @@ tic
 for n = 1:n_HM_models
     
     for m = 1:n_HM_cycles
-
+disp([n;m])
         normstates = (1 - 0.999) / (max_HMM_states(n) - 1); % normalise by total number states - 1
         p = diag(0.999*ones(1, max_HMM_states(n)) - normstates) + normstates; % transition matrix (p) initialized
 
